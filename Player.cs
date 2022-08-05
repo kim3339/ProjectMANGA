@@ -70,5 +70,6 @@ public class Player : KinematicBody2D
     Vector2 getFriction(float delta)
     {
         return -velocity * Mathf.Min(groundFrictionMultiplier * delta , 1);
+        //Test
     }
 }
