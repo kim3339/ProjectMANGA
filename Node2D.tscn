@@ -1,0 +1,50 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://new_script.cs" type="Script" id=1]
+[ext_resource path="res://Individual Sprites/adventurer-idle-03.png" type="Texture" id=2]
+[ext_resource path="res://Individual Sprites/adventurer-idle-01.png" type="Texture" id=3]
+[ext_resource path="res://Individual Sprites/adventurer-idle-02.png" type="Texture" id=4]
+[ext_resource path="res://Individual Sprites/adventurer-idle-00.png" type="Texture" id=5]
+[ext_resource path="res://Player.cs" type="Script" id=6]
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 5.5
+height = 19.0
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 5 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[node name="TestScene" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+script = ExtResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( -0.5, 3 )
+shape = SubResource( 2 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+frames = SubResource( 1 )
+frame = 3
+playing = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.59, 0.567 )
+
+[node name="TestGround" type="StaticBody2D" parent="."]
+
+[node name="Polygon2D" type="Polygon2D" parent="TestGround"]
+polygon = PoolVector2Array( -71, 38, 0, 38, 80, 39, 117, 1, 149, -14, 178, 38, 223, 15, 225, -70, 245, -70, 246, 110, -148, 111, -148, -102, -129, -101, -129, -63, -95, 37 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="TestGround"]
+polygon = PoolVector2Array( -71, 38, 0, 38, 80, 39, 117, 1, 149, -14, 178, 38, 223, 15, 225, -70, 245, -70, 246, 110, -148, 111, -148, -102, -129, -101, -129, -63, -95, 37 )
+__meta__ = {
+"_editor_description_": ""
+}
