@@ -14,6 +14,7 @@ public class CharacterBody : KinematicBody2D
     bool isMoving = false;
     int jumpableFrameCount = 0;
     bool shouldJump = false;
+    float jumpPower = 0;
 
     public override void _Process(float delta)
     {
@@ -42,9 +43,10 @@ public class CharacterBody : KinematicBody2D
         }
     }
 
-    protected void Jump()
+    protected void Jump(float power)
     {
         shouldJump =  true;
+        jumpPower = power;
     }
 
     float getAcceleration(float targetSpeed, float delta)
@@ -107,13 +109,13 @@ public class CharacterBody : KinematicBody2D
         {
             if (shouldJump)
             {
-                velocity.y -= 300f;
+                velocity.y -= jumpPower;
                 jumpableFrameCount = 0;
-                shouldJump = false;
             }
             else
                 jumpableFrameCount--;
         }
+        shouldJump = false;
     }
 
     void MoveWithVelocity()
