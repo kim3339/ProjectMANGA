@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="TestGround" type="StaticBody2D"]
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PoolVector2Array( -71, 38, 0, 38, 80, 39, 117, 1, 149, -14, 178, 38, 223, 15, 225, -70, 245, -70, 246, 110, -148, 111, -148, -102, -129, -101, -129, -63, -95, 37 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( -71, 38, 0, 38, 80, 39, 117, 1, 149, -14, 178, 38, 223, 15, 225, -70, 245, -70, 246, 110, -148, 111, -148, -102, -129, -101, -129, -63, -95, 37 )
+__meta__ = {
+"_editor_description_": ""
+}
